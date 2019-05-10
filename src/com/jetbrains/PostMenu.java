@@ -21,7 +21,7 @@ public class PostMenu {
         Scanner keyboard = new Scanner(System.in);
         do {
             System.out.println("1. Create a New User");
-            System.out.println("2. Create a Post as a New User");
+            System.out.println("2. Create a Post");
             System.out.println("3. Print all posts");
             System.out.println("4. Print all users");
             System.out.println("0. Quit");
@@ -39,6 +39,7 @@ public class PostMenu {
     private void processSelection(int selection) {
         switch (selection) {
             case 1:
+                selection = 1;
                 UserGenerator userGenerator = new UserGenerator();
                 User user = userGenerator.createUser();
                 userLog.add(user);
