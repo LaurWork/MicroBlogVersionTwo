@@ -70,7 +70,7 @@ public class Post {
     public String toString() {
         return  "Post number: " + this.id + "\n" +
                 this.content + "\n" +
-                "Written by: " + this.user.getUsername() + "\n" +
+                "Written by: " + this.user + "\n" +
                 //The expression below checks if the url
                 //field is null. If not, it displays the url.
                 //If it is, it just displays an empty string
