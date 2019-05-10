@@ -33,7 +33,7 @@ public class User {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(String content) {
         this.username = username;
     }
 
@@ -60,6 +60,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
 
     //Method to override the built-in toString method
     //and display a post in a format of our choosing
