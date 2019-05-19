@@ -7,6 +7,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    public User user;
 
     //Blank Constructor
     public User() { }
@@ -61,15 +62,17 @@ public class User {
         this.email = email;
     }
 
+    public User getUser(User user) { return user;}
+
+    void setUser(User user) {this.user = user;}
+
+
 
     //Method to override the built-in toString method
     //and display a post in a format of our choosing
     @Override
     public String toString() {
-        return  "User name " + this.username + "\n" +
-                "Email " + this.email +
-                "Name " + this.firstName + this.lastName +
-                "Avatar URL: " + (this.avatarUrl != null ? this.avatarUrl : "");
+        return  "User name " + this.username + "\n" ;
 
     }
 }
