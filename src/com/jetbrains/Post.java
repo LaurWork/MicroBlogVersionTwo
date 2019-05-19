@@ -10,13 +10,8 @@ public class Post {
     private String content;
     private String url;
 
-
     // Blank Constructor
-    public Post() {
-        postCounter++;
-        this.id = postCounter;
-    }
-
+    public Post() { }
 
     //Constructor to create new Post object with just user and content
     public Post(User user, String content) {
@@ -45,9 +40,7 @@ public class Post {
         return user;
     }
 
-//    public User getUsername() { return user; }
-
-    public void setUser(String content) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -66,7 +59,6 @@ public class Post {
     public void setUrl(String url) {
         this.url = url;
     }
-
     //Getter to return the post id
     public int getId() {
         return this.id;
@@ -78,11 +70,13 @@ public class Post {
     public String toString() {
         return  "Post number: " + this.id + "\n" +
                 this.content + "\n" +
-                "Written by: " + user.getUsername() + "\n" +
+                "Written by: " + this.user + "\n" +
                 //The expression below checks if the url
                 //field is null. If not, it displays the url.
                 //If it is, it just displays an empty string
                 "URL: " + (this.url != null ? this.url : "");
 
     }
+
+
 }
