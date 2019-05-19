@@ -4,15 +4,17 @@ import java.util.ArrayList;
 
 public class PostMenu {
 
-
     private ArrayList<Post> postLog;
     private ArrayList<User> userLog;
+
+    private User currentUser;
+    private Scanner keyboard;
 
     public PostMenu() {
         this.postLog = new ArrayList();
         this.userLog = new ArrayList();
+        this.keyboard = new Scanner(System.in);
     }
-
 
     public void runMenu() {
         welcome();
@@ -32,30 +34,35 @@ public class PostMenu {
             }
         } while(selection != 0);
 
-        System.out.println("See ya later!");
+        System.out.println("Thanks for visiting our blog!");
     }
 
     private void welcome() {System.out.println("Main Menu");}
     private void processSelection(int selection) {
         switch (selection) {
             case 1:
-                selection = 1;
                 UserGenerator userGenerator = new UserGenerator();
                 User user = userGenerator.createUser();
-                userLog.add(user);
+                this.userLog.add(user);
                 break;
             case 2:
-                selection = 2;
+                if (userLog.size() == 0) {
+                    System.out.println("You must create a user before posting.");
+                break; }
+                System.out.println("What's your username?");
+                viewUsers();
+                int userNumber = keyboard.nextInt();
+                keyboard.nextLine();
+                User selectedUser = userLog.get(userNumber);
                 PostGenerator postGenerator = new PostGenerator();
-                Post post = postGenerator.generatePost();
-                postLog.add(post);
+                Post post = postGenerator.generatePost(selectedUser);
+                this.postLog.add(post);
                 break;
+
             case 3:
-                selection = 3;
                 viewPosts();
                 break;
             case 4:
-                selection = 4;
                 viewUsers();
                 break;
         }
@@ -68,13 +75,17 @@ public class PostMenu {
         }
     }
 
-    private void viewUsers(){
-        for (User users: userLog){
-            System.out.println("----------------");
-            System.out.println(users.toString());
+
+    public void viewUsers(){
+        for (int i = 0; i < userLog.size(); i++) {
+            System.out.println("------");
+            System.out.println(i + " " + userLog.get(i).toString());
+        }
+        System.out.println("-----");
+        System.out.println(" ");
+
+
+
         }
     }
 
-
-
-}
