@@ -9,20 +9,6 @@ public class UserGenerator {
         this.keyboard = new Scanner(System.in);
     }
 
-//    public User generateUser() {
-//        User user = createUser();
-//        String validate;
-//        User newUser;
-//        do {
-//            newUser = createUser();
-//            System.out.println("\n" + newUser.toString() + "\n");
-//            System.out.println("Would you like to make a new user now? (Enter \"y\" for yes)");
-//            validate = keyboard.nextLine();
-//        } while (!validate.toLowerCase().equals("y"));
-//        return newUser;
-//    }
-
-
 
     public User createUser(){
         User user = new User();
